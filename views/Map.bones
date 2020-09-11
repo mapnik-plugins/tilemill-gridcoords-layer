@@ -39,23 +39,15 @@ view.prototype.render = function(init) {
 
     // Indentify which layer is the TileMill layer
     this.map.tmLayer = 0;
-
-    // Get remote map endpoint
-    var basemap = (this.model.get('_basemap'));
-    if (basemap) {
-
-        //if a mapbox.com mapID is given, use that to construct the tileJSON url
-        //mapbox IDs are of the form 'account.mapid', where account and mapid can't contain url-reserved chars
-        if (basemap.match(/^[^/.]+\.[^/.]+$/)) {
-            basemap = this.model.mapboxTileJSON(basemap);
-        }
-
-        wax.tilejson(basemap, _(function(tilejson) {
-            // Insert remote map as a layer
-            this.map.insertLayerAt(0, new wax.mm.connector(tilejson));
-            this.map.tmLayer = 1; // Indicate that the TileMill layer has changed
-        }).bind(this));
-    }
+    var tilejson_base = {
+        tilejson: '1.0.0',
+        scheme: 'xyz',
+        tiles: ['https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/Landsat_WELD_CorrectedReflectance_Bands157_Global_Annual/default/2000-12-01/GoogleMapsCompatible_Level12/{z}/{y}/{x}.jpg'],
+        "minzoom": 0,
+        "maxzoom": 12
+    };
+    this.map.insertLayerAt(0, new wax.mm.connector(tilejson_base));
+    this.map.tmLayer=1;
 
     // Add references to all controls onto the map object.
     // Allows controls to be removed later on.
