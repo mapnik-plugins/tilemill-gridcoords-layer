@@ -42,7 +42,7 @@ view.prototype.render = function(init) {
     var tilejson_base = {
         tilejson: '1.0.0',
         scheme: 'xyz',
-        tiles: ['https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/Landsat_WELD_CorrectedReflectance_Bands157_Global_Annual/default/2000-12-01/GoogleMapsCompatible_Level12/{z}/{y}/{x}.jpg'],
+        tiles: ['https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual/default/2000-12-01/GoogleMapsCompatible_Level12/{z}/{y}/{x}.jpg'],
         "minzoom": 0,
         "maxzoom": 12
     };
