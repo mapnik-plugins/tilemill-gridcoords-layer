@@ -1,6 +1,6 @@
 {
-    "name": "tilemill-reference-layer",
-    "description": "Add MapBox Streets or a custom map as a base layer.",
+    "name": "tilemill-gridcoords-layer",
+    "description": "Add tilegrid coordinates (Z/X/Y) as a layer.",
     "version": "0.3.0",
     "engines": {"tilemill":"*"},
     "keywords": ["tilemill"]
